@@ -1,6 +1,7 @@
 .container {
   display: flex;
   flex-direction: column;
+  align-items: center;
 }
 
 .form {
@@ -40,7 +41,9 @@
 .gallery {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
   gap: 24px;
+  margin-bottom: 24px;
 }
 
 .gallery-card {
@@ -73,8 +76,32 @@
   line-height: 2;
 }
 
+.load-btn {
+  margin-top: 32px;
+  margin-bottom: 44px;
+  width: 125px;
+  height: 40px;
+  border: none;
+  border-radius: 8px;
+  background-color: #4e75ff;
+  color: #fff;
+  font-size: 16px;
+  line-height: 1.5;
+  transition: background-color linear 250ms;
+}
+
+.load-btn:hover,
+.load-btn:focus {
+  background-color: #6c8cff;
+}
+
+.load-btn.is-hidden {
+  display: none;
+}
+
 /* === loader === */
 .loader {
+  margin-top: 100px;
   width: 100%;
   height: 4.8px;
   margin-left: auto;
