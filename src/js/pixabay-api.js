@@ -6,7 +6,7 @@ export const getImagesByQuery = async (query, page) => {
       key: '51362773-b845efdff4000eb7d694ec90c',
       q: query,
       page: page,
-      per_page: 15,
+      per_page: perPage,
       orientation: 'horizontal',
       safesearch: true,
       image_type: 'photo',
@@ -14,3 +14,5 @@ export const getImagesByQuery = async (query, page) => {
   });
   return response.data;
 };
+
+export const perPage = 15;

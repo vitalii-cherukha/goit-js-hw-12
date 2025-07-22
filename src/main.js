@@ -1,5 +1,5 @@
 import iziToast from 'izitoast';
-import { getImagesByQuery } from './js/pixabay-api';
+import { getImagesByQuery, perPage } from './js/pixabay-api';
 import {
   createGallery,
   clearGallery,
@@ -19,7 +19,6 @@ const refs = {
 let currentPage = 1;
 let searchValue = '';
 let totalHits = 0;
-const PER_PAGE = 15;
 
 const onSearchFormSubmit = async e => {
   try {
@@ -55,7 +54,7 @@ const onSearchFormSubmit = async e => {
       return;
     }
     createGallery(hits);
-    if (currentPage * PER_PAGE < totalHits) {
+    if (currentPage * perPage < totalHits) {
       showLoadMoreButton();
     } else {
       hideLoadMoreButton();
@@ -78,7 +77,7 @@ const onLoadBtnClick = async e => {
     const { hits } = await getImagesByQuery(searchValue, currentPage);
     createGallery(hits);
     showLoadMoreButton();
-    if (currentPage * PER_PAGE >= totalHits) {
+    if (currentPage * perPage >= totalHits) {
       hideLoadMoreButton();
       iziToast.info({
         message: "We're sorry, but you've reached the end of search results.",
