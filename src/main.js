@@ -73,7 +73,7 @@ const onSearchFormSubmit = async e => {
 const onLoadBtnClick = async e => {
   try {
     showLoader();
-
+    e.target.blur();
     currentPage += 1;
     const { hits } = await getImagesByQuery(searchValue, currentPage);
     createGallery(hits);
