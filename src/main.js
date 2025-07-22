@@ -78,6 +78,7 @@ const onLoadBtnClick = async e => {
     createGallery(hits);
     showLoadMoreButton();
     if (currentPage * perPage >= totalHits) {
+      refs.loadBtn.removeEventListener('click', onLoadBtnClick);
       hideLoadMoreButton();
       iziToast.info({
         message: "We're sorry, but you've reached the end of search results.",
